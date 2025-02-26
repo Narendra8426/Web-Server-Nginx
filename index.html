@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome to Nginx with Docker!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #1e88e5;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            letter-spacing: 2px;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #4caf50;
+            color: white;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+
+        .intro h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .content {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .content h3 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .content ul {
+            text-align: left;
+            margin: 20px auto;
+            padding: 10px;
+            max-width: 800px;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+        .content ul li {
+            margin: 15px 0;
+        }
+
+        .content a {
+            color: #1e88e5;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .content a:hover {
+            color: #4caf50;
+        }
+
+        footer {
+            background-color: #1e88e5;
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer p {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .button {
+            background-color: #ff9800;
+            color: white;
+            padding: 15px 25px;
+            font-size: 1.3em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #f57c00;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Nginx with Docker!</h1>
+</header>
+
+<div class="intro">
+    <h2>What is Nginx?</h2>
+    <p>Nginx is a high-performance web server, reverse proxy, and load balancer. It's known for its ability to handle a large number of concurrent connections efficiently.</p>
+</div>
+
+<div class="content">
+    <h3>How is Nginx Deployed Using Docker on Windows?</h3>
+    <p>Deploying Nginx with Docker on a Windows machine is easy and powerful. With Docker Desktop, you can run Nginx in a container, isolating it from your system, and deploy it in seconds.</p>
+
+    <h3>Steps to Deploy Nginx on Windows Using Docker:</h3>
+    <ul>
+        <li><strong>Install Docker Desktop:</strong> First, download and install Docker Desktop for Windows from <a href="https://www.docker.com/products/docker-desktop" target="_blank">Docker's official site</a>.</li>
+        <li><strong>Run Docker Desktop:</strong> Open Docker Desktop and make sure it is running properly on your system.</li>
+        <li><strong>Pull the Nginx Docker Image:</strong> Use the command <code>docker pull nginx</code> to download the latest Nginx image.</li>
+        <li><strong>Run the Nginx Container:</strong> Start the container with the command <code>docker run -d -p 8080:80 --name nginx-server nginx</code>.</li>
+        <li><strong>Access Your Nginx Server:</strong> Open a browser and navigate to <a href="http://localhost:8080" target="_blank">http://localhost:8080</a> to see Nginx running!</li>
+    </ul>
+
+    <h3>How to Update the `index.html` File from Your Local Machine:</h3>
+    <p>If you want to replace the `index.html` file with a new one from your local machine, follow these steps:</p>
+    <ul>
+        <li><strong>Prepare Your New `index.html` File:</strong> Ensure the new `index.html` file is ready on your local machine. For example, it's located at <code>C:\path\to\your\new\index.html</code>.</li>
+        <li><strong>Copy the File into the Container:</strong> Run the following Docker command to copy your new `index.html` file into the Nginx container:
+            <pre>docker cp C:\path\to\your\new\index.html nginx-server:/usr/share/nginx/html/index.html</pre>
+        </li>
+        <li><strong>Verify the Update:</strong> After copying the file, open a browser and go to <a href="http://localhost:8080" target="_blank">http://localhost:8080</a> to see the updated content. You can also verify it inside the container by running:
+            <pre>docker exec -it nginx-server cat /usr/share/nginx/html/index.html</pre>
+        </li>
+    </ul>
+
+    <p>If you want to learn more about Docker and Nginx, you can visit:</p>
+    <ul>
+        <li><a href="https://www.nginx.com/" target="_blank">Nginx Official Website</a></li>
+        <li><a href="https://nginx.org/" target="_blank">Nginx Open Source</a></li>
+        <li><a href="https://www.docker.com/" target="_blank">Docker Official Website</a></li>
+    </ul>
+
+    <button class="button" onclick="alert('You can start learning and deploying now!')">Start Learning</button>
+</div>
+
+<footer>
+    <p>Powered by <a href="https://www.nginx.com/" target="_blank">Nginx</a> & <a href="https://www.docker.com/" target="_blank">Docker</a></p>
+    <p>Explore the official websites for more information.</p>
+</footer>
+
+</body>
+</html>
